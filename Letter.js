@@ -1,5 +1,5 @@
-function Letter(){
-    this.letter = 'a',
+function Letter(letter){
+    this.letter = letter,
     this.guessed = false,
     this.returnLetter = function(){
         if (this.guessed){
@@ -18,8 +18,10 @@ function Letter(){
     }
 }
 
-let newGuess = new Letter();
+module.exports = Letter;
 
-newGuess.letter = 'z';
-newGuess.isCorrect('z');
-console.log(newGuess.guessed);
+// let newGuess = new Letter();
+
+// newGuess.letter = 'z';
+// newGuess.isCorrect('z');
+// console.log(newGuess.guessed);
