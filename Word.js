@@ -2,7 +2,10 @@ let Letter = require('./Letter');
 
 // console.log(newLetter)
 
-function Word(word){
+function Word(){
+    this.words = ["function", "express", "recursion", "scope", "variable", "closure"],
+    this.randomNum = Math.floor(Math.random() * this.words.length),
+    this.theWord = this.words[this.randomNum],
     this.letters = [],
     this.numGuesses = 6,
     this.lettersGuessed = [],
@@ -20,8 +23,8 @@ function Word(word){
         }
     },
     this.addLetters = function() {
-        for(let i=0;i<word.length;i++){
-            this.letters.push(new Letter(word[i]))
+        for(let i=0;i<this.theWord.length;i++){
+            this.letters.push(new Letter(this.theWord[i]))
         }
     },
     this.showWord = function(){

@@ -16,9 +16,3 @@ function Letter(letter){
 }
 
 module.exports = Letter;
-
-// let newGuess = new Letter();
-
-// newGuess.letter = 'z';
-// newGuess.isCorrect('z');
-// console.log(newGuess.guessed);

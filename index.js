@@ -1,10 +1,7 @@
 let Word = require("./word");
 let inquirer = require("inquirer");
 
-let words = ["function", "express", "recursion", "scope", "variable", "closure"];
-let randomNum = Math.floor(Math.random() * words.length);
-let theWord = words[randomNum]
-let game = new Word(theWord);
+let game = new Word();
 
 game.addLetters();
 
@@ -43,10 +40,3 @@ Try playing again!`)
         playGame();
     });
 }
-
-// game.guessLetter('h');
-// game.showWord();
-// game.guessLetter('e');
-// game.showWord();
-// game.guessLetter('l');
-// game.showWord();
