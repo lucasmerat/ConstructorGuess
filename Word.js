@@ -20,7 +20,7 @@ function Word(word){
     }
     this.guessLetter = function (letter){
          this.letters.forEach(function(letterObj){
-             console.log(letterObj)
+            letterObj.isCorrect(letter)
          })
     }
 }
@@ -28,7 +28,10 @@ function Word(word){
 let newWord = new Word('hello');
 
 newWord.addLetters();
-// newWord.guessLetter('h');
+newWord.guessLetter('h');
+newWord.guessLetter('e');
+newWord.guessLetter('l');
+
 newWord.showWord();
 
 // newWord.showWord();

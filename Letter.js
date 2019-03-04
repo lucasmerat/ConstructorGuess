@@ -11,9 +11,6 @@ function Letter(letter){
     this.isCorrect = function(guess){
         if(guess === this.letter){
             this.guessed = true;
-            return console.log('Correct guess!')
-        } else {
-            return console.log('Incorrect guess :(')
         }
     }
 }
