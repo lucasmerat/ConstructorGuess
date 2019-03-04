@@ -9,7 +9,7 @@ let game = new Word(words[randomWord]);
 
 game.addLetters();
 
-console.log(game)
+// console.log(game)
 
 playGame()
 
@@ -21,9 +21,13 @@ inquirer.prompt([
         message: "Guess a letter!"
     }
 ]).then(function(answer){
-    game.guessLetter(answer.guess.toLowerCase());
-    console.log(game)
+    let guess = answer.guess.toLowerCase()
+    game.guessLetter(guess);
+    console.log(game.letters)
     game.showWord();
+    if(game.checkWinGame()){
+        return;
+    }
     playGame();
 })
 }
