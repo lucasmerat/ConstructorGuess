@@ -4,6 +4,9 @@ let Letter = require('./Letter');
 
 function Word(word){
     this.letters = [],
+    this.numGuesses = 6,
+    this.lettersGuessed = [],
+    this.incorrectGuesses = 0,
     this.checkWinGame = function(){
         let correctCount = 0;
         this.letters.forEach(function(letter){
@@ -12,12 +15,10 @@ function Word(word){
             }
         })
         if (correctCount === this.letters.length){
-            console.log("You win!")
+            console.log("You got it. Great job!!")
             return true;
         }
     },
-    this.incorrectGuesses = 0,
-    this.guessesRemaining = this.letters.length - this.incorrectGuesses, // Need to make this use the new letter object
     this.addLetters = function() {
         for(let i=0;i<word.length;i++){
             this.letters.push(new Letter(word[i]))
@@ -28,13 +29,29 @@ function Word(word){
         for(let i=0;i<this.letters.length;i++){
            fullWord.push(this.letters[i].returnLetter());
         }
-        console.log(fullWord.join(' '))
+        console.log(`${fullWord.join(" ")}
+`)
     }
     this.guessLetter = function (letter){
-         this.letters.forEach(function(letterObj){
-            letterObj.isCorrect(letter)
-            // console.log(letterObj)
-         })
+        let found = false;
+        for(let i=0;i<this.letters.length;i++){
+            if(this.letters[i].letter === letter){
+                this.letters[i].isCorrect(letter)
+                found = true;
+            }
+        }
+        if(found){
+            console.log(`Yep! There is the letter ${letter} in the secret word. You have ${this.numGuesses - this.incorrectGuesses} guesses remaining.`)
+        }
+        if(!found && this.lettersGuessed.indexOf(letter) === -1){
+            this.lettersGuessed.push(letter)
+            this.incorrectGuesses++;
+            console.log(`
+-----------------------------------          
+Nope, no "${letter}" in the secret word, you have ${this.numGuesses - this.incorrectGuesses} guesses remaining.
+
+So far you have guessed the letters: ${this.lettersGuessed}`)
+        }
     }
 }
 

@@ -1,35 +1,47 @@
-let Word = require('./word');
-let inquirer = require('inquirer')
+let Word = require("./word");
+let inquirer = require("inquirer");
 
-let words = ['hello','goodbye','sup'];
-
-let randomWord = Math.floor(Math.random() * words.length);
-
-let game = new Word(words[randomWord]);
+let words = ["function", "express", "recursion", "scope", "variable", "closure"];
+let randomNum = Math.floor(Math.random() * words.length);
+let theWord = words[randomNum]
+let game = new Word(theWord);
 
 game.addLetters();
 
-// console.log(game)
+////Start of game
 
-playGame()
+console.log(`
+---------------------------
+Welcome to node word guess! All the clues are coding-themed.
+You have ${game.numGuesses} guesses to guess the secret word. Good luck!
+---------------------------
+`)
+game.showWord();
 
-function playGame (){
-inquirer.prompt([
-    {
+playGame();
+
+function playGame() {
+  inquirer
+    .prompt([
+      {
         type: "input",
         name: "guess",
         message: "Guess a letter!"
-    }
-]).then(function(answer){
-    let guess = answer.guess.toLowerCase()
-    game.guessLetter(guess);
-    console.log(game.letters)
-    game.showWord();
-    if(game.checkWinGame()){
-        return;
-    }
-    playGame();
-})
+      }
+    ])
+    .then(function(answer) {
+        let guess = answer.guess.toLowerCase();
+        game.guessLetter(guess);
+        game.showWord();
+        if(game.incorrectGuesses > 5){
+            return console.log(`Aw, you ran out of guesses, the word was: ${theWord} 
+Try playing again!`)
+        }
+        if (game.checkWinGame()) {
+          return;
+        }
+        playGame();
+    });
 }
 
 // game.guessLetter('h');
