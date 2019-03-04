@@ -1,0 +1,22 @@
+{
+  "name": "constructorguess",
+  "version": "1.0.0",
+  "description": "A node-based command line word-guess game using object constructors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasmerat/ConstructorGuess.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasmerat/ConstructorGuess/issues"
+  },
+  "homepage": "https://github.com/lucasmerat/ConstructorGuess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  }
+}

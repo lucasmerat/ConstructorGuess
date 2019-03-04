@@ -1,7 +1,5 @@
 let Letter = require('./Letter');
 
-let newLetter = new Letter();
-
 // console.log(newLetter)
 
 function Word(word){
@@ -25,13 +23,14 @@ function Word(word){
     }
 }
 
-let newWord = new Word('hello');
+// let newWord = new Word('hello');
 
-newWord.addLetters();
-newWord.guessLetter('h');
-newWord.guessLetter('e');
-newWord.guessLetter('l');
-
-newWord.showWord();
+// newWord.addLetters();
+// newWord.guessLetter('h');
+// newWord.guessLetter('e');
+// newWord.guessLetter('l');
+// newWord.showWord();
 
 // newWord.showWord();
+
+module.exports = Word;
