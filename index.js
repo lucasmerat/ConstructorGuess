@@ -1,10 +1,13 @@
 let Word = require('./word');
+let inquirer = require('inquirer')
+
+console.log(inquirer);
 
 let words = ['hello','goodbye','sup'];
 
 let randomWord = Math.floor(Math.random() * words.length);
 
-let game = new Word(words[randomWord])
+let game = new Word(words[randomWord]);
 
 game.addLetters();
 
