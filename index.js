@@ -23,7 +23,20 @@ function playGame() {
       {
         type: "input",
         name: "guess",
-        message: "Guess a letter!"
+        message: "Guess a letter!",
+        validate: function(value){
+            let lowVal = value.toLowerCase()
+            let reg = /[a-z]/
+            if(lowVal.length > 1){
+                console.log('  STOP! Please only enter 1 letter at a time')
+                return false;
+            } else if(!reg.test(lowVal)){
+                console.log(' STOP! Make sure you are only entering letters!')
+                return false;
+            } else {
+                return true;
+            }
+        }
       }
     ])
     .then(function(answer) {
@@ -31,7 +44,7 @@ function playGame() {
         game.guessLetter(guess);
         game.showWord();
         if(game.incorrectGuesses > 5){
-            return console.log(`Aw, you ran out of guesses, the word was: ${theWord} 
+            return console.log(`Aw, you ran out of guesses, the word was: ${game.theWord} 
 Try playing again!`)
         }
         if (game.checkWinGame()) {
