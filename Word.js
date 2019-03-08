@@ -3,7 +3,7 @@ let Letter = require('./Letter');
 // console.log(newLetter)
 
 function Word(){
-    this.words = ["function", "express", "recursion", "scope", "variable", "closure"],
+    this.words = ["function"],
     this.randomNum = Math.floor(Math.random() * this.words.length),
     this.theWord = this.words[this.randomNum],
     this.letters = [],
