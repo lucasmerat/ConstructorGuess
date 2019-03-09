@@ -43,6 +43,7 @@ function playGame() {
         let guess = answer.guess.toLowerCase();
         game.guessLetter(guess);
         game.showWord();
+        //Game win/loss logic. Checks if incorrect guesses are full, if not it checks if that move was a win
         if(game.incorrectGuesses > 5){
             return console.log(`Aw, you ran out of guesses, the word was: ${game.theWord} 
 Try playing again!`)
